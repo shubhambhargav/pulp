@@ -1,0 +1,2 @@
+recursive-include pikapika/conf/app_template *.py-tpl
+recursive-include pikapika/conf/project_template *.py-tpl

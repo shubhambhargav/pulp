@@ -1,0 +1,85 @@
+# Nested json keys for sql_reader
+LOG_READER_NESTED_JSON = []
+
+# Readers import
+from pulp.db.readers.log_reader import LogReader
+from pulp.db.readers.sql_reader import SqlReader
+# Custom Readers
+"""
+Import Custom Readers Here.
+"""
+
+# Writers import
+from pulp.db.writers.sql_writer import SqlWriter
+# Custom Writers
+"""
+Import Custom Writers Here.
+"""
+
+
+# SQL_SETTINGS
+SQL_HOST = ''
+SQL_TEST_HOST = ''
+SQL_USER = ''
+SQL_PASSWORD = ''
+SQL_DB = ''
+SQL_TEST_DB = ''
+
+DEFAULT_SQL_CONFIG = {
+                        'host': SQL_HOST,
+                        'test_host': SQL_TEST_HOST,
+                        'user': SQL_USER,
+                        'password': SQL_PASSWORD,
+                        'db': SQL_DB,
+                        'test_db': SQL_TEST_DB
+}
+
+# Mailer Config
+# Valid Types:
+# 1. MAILGUN
+# 2. GMAIL
+
+MAILGUN_KEY = ''
+MAILGUN_SANDBOX = ''
+MAILGUN_SENDER = ''
+MAILGUN_URL = ''
+
+GMAIL_INFO_SENDER = ''
+GMAIL_INFO_PASSWORD = ''
+
+DEFAULT_MAILER_CONFIG = {
+                            'type': 'MAILGUN',
+                            'key': MAILGUN_KEY,
+                            'sender': MAILGUN_SENDER,
+                            'url': MAILGUN_URL
+                        }
+
+MAILERS = {
+            'mailgun_error': DEFAULT_MAILER_CONFIG,
+            'gmail_info': {
+                            'type': 'GMAIL',
+                            'sender': GMAIL_INFO_SENDER,
+                            'password': GMAIL_INFO_PASSWORD
+                        }
+}
+
+# Default error mails receiver
+ERROR_MAIL_RECEIVER = []
+
+WRITERS = {
+            'sql_writer': {
+                            'engine': SqlWriter,
+                            'config': DEFAULT_SQL_CONFIG
+}
+
+READERS = {
+            'sql_reader': {
+                            'engine' : SqlReader,
+                            'config': DEFAULT_SQL_CONFIG
+                        },
+            'log_reader': {
+                            'engine': LogReader
+            }          
+}
+
+INSTALLED_APPS = ()
