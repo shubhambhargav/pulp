@@ -18,7 +18,7 @@ if __name__ == '__main__':
     from pulp.core.management.executioner import execute_task_from_cmd
 
     # Valid runner types
-    runner_types = ['tasks', 'tests', 'register_tasks']
+    runner_types = ['tasks', 'tests', 'register_tasks', 'start_server']
     # Apps list from settings file
     apps_list = [app.replace('apps.', '') for app in settings.INSTALLED_APPS] + [None,]
 

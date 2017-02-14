@@ -1,5 +1,5 @@
 from pulp.db.fields import CharField, EmbeddedJsonField
-from pulp.db.models import BatchModel, SingularModel
+from pulp.db.models import SingleProcessModel, MultiProcessModel
 
 
 class SampleField(EmbeddedJsonField):
@@ -7,7 +7,7 @@ class SampleField(EmbeddedJsonField):
     embtest1 = CharField(src='test1', des='test1')
 
 
-class SampleIngestor(SingularModel):
+class SampleIngestor(SingleProcessModel):
 
     test1 = CharField(src='test1', des='test2')
     test2 = CharField(src='test2', des='test1')

@@ -14,7 +14,11 @@ from pulp.utils.util import Utilities
 DEFAULT_QUEUE_SIZE = 100
 
 
-class SingularModel(object):
+class SingleProcessModel(object):
+
+    """
+    Singular process for ingesting
+    """
 
     __metaclass__ = abc.ABCMeta
 
@@ -208,7 +212,10 @@ class SingularModel(object):
         return clean_data
 
 
-class BatchModel(object):
+class MultiProcessModel(object):
+    """
+    Multi-processing model for parallel processing
+    """
     
     __metaclass__ = abc.ABCMeta
 

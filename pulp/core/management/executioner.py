@@ -1,5 +1,6 @@
 import os
 import sys
+import bottle
 import luigi
 import shutil
 import MySQLdb
@@ -10,6 +11,7 @@ from importlib import import_module
 
 from pulp import conf
 from pulp.conf import settings
+from pulp.server.api import app
 from pulp.utils.util import Utilities
 
 
@@ -322,6 +324,14 @@ def execute_task_from_cmd(runner_type, runner_name, runner_list=[]):
         execution_master = TestsExecutioner(runner_name, runner_list)
     elif runner_type == 'register_tasks':
         execution_master = TasksRegister(runner_name, runner_list)
+    elif runner_type == 'start_server':
+        bottle.run(
+                    app=app,
+                    host='0.0.0.0',
+                    port=8000
+                )
+    #elif runner_type == 'stop_server':
+        # Do nothing
     else:
         return
 

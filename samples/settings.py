@@ -23,3 +23,10 @@ WRITERS = {
 INSTALLED_APPS = (
             'apps.testing',
         )
+
+
+d = {
+    'manage_loc': BASE_PATH
+}
+
+OS_COMMAND = "python %(manage_loc)s/manage.py tasks %%(app_name)s %%(task_list)s" % d
