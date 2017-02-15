@@ -1,5 +1,5 @@
 from pulp.db.fields import CharField, EmbeddedJsonField
-from pulp.db.models import SingleProcessModel, MultiProcessModel
+from pulp.db.models import SingleProcessModel
 
 
 class SampleField(EmbeddedJsonField):

@@ -29,4 +29,7 @@ d = {
     'manage_loc': BASE_PATH
 }
 
-OS_COMMAND = "python %(manage_loc)s/manage.py tasks %%(app_name)s %%(task_list)s" % d
+# Task Run Command
+TASK_OS_COMMAND = "python %(manage_loc)s/manage.py tasks %%(app_name)s %%(task_list)s" % d
+# Test Run Command
+TEST_OS_COMMAND = "python %(manage_loc)s/manage.py tests %%(app_name)s %%(task_list)s" % d
